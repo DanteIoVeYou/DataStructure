@@ -37,7 +37,7 @@ void Test()
 	else
 		printf("9 no\n");
 
-
+	SeqListDestroy(&sl);
 }
 
 
