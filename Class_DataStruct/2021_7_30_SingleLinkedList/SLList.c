@@ -25,12 +25,12 @@ void SLListPrint(const SLList* phead)
 	else
 	{
 		SLList* cur = phead;
-		while (cur->next != NULL)
+		while (cur)
 		{
 			printf("%d->", cur->data);
 			cur = cur->next;
 		}
-		printf("%d->NULL\n",cur->data);
+		printf("NULL\n");
 	}
 }
 void SLListPushBack(SLList** pphead, SLListDataType x)
@@ -169,7 +169,7 @@ void SLListEraseAfter(SLList* phead)
 }
 void SLListDestroy(SLList** pphead)
 {
-	assert(pphead);
+	assert(pphead);		
 	SLList* cur = *pphead;
 	while (cur)
 	{
