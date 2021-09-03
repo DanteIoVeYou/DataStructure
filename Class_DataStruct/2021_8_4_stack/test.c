@@ -10,24 +10,27 @@ Test1()
 
 
 	StackPush(pstack, 1);
-	StackPrint(pstack);
 
 	StackPush(pstack, 2);
-	StackPrint(pstack);
 
 	StackPush(pstack, 3);
-	StackPrint(pstack);
 
 	StackPush(pstack, 4);
-	StackPrint(pstack);
 
 	StackPop(pstack);
-	StackPrint(pstack);
+	StackPop(pstack);
+
+	StackPop(pstack);
+
+	StackPop(pstack);
+
+
 
 	printf("%d\n", StackEmpty(pstack));
 	printf("%d\n", StackSize(pstack));
 
 	StackDestroy(pstack);
+	
 }
 int main()
 {

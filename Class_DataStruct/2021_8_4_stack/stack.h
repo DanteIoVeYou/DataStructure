@@ -15,8 +15,8 @@ typedef struct Stack {
 
 void StackInit(Stack* ps);
 void StackDestroy(Stack* ps);
-void StackPrint(const Stack* ps);
 void StackPush(Stack* ps, StackDataType x);
 void StackPop(Stack* ps);
 int StackEmpty(Stack* ps);
 size_t StackSize(const Stack* ps);
+StackDataType StackTop(const Stack* ps);

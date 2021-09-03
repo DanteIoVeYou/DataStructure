@@ -71,10 +71,17 @@ void StackPop(Stack* ps)
 
 int StackEmpty(Stack* ps)
 {
-	return ps->capacity == ps->size;
+	return ps->size == 0;
 }
 
 size_t StackSize(const Stack* ps)
 {
 	return ps->size;
+}
+
+StackDataType StackTop(const Stack* ps)
+{
+	assert(ps);
+	ASSert(StackEmpty(ps));
+	return ps->data[ps->size - 1];
 }
