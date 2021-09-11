@@ -82,6 +82,6 @@ size_t StackSize(const Stack* ps)
 StackDataType StackTop(const Stack* ps)
 {
 	assert(ps);
-	ASSert(StackEmpty(ps));
+	assert(StackEmpty(ps));
 	return ps->data[ps->size - 1];
 }
