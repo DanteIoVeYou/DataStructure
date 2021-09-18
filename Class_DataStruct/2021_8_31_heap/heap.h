@@ -1,4 +1,5 @@
 #pragma once
 #include <stdio.h>
-void HeapSort(int* a, int sz);
-void PrintArray(int* a, int sz);
+typedef int HeapDataType;
+void HeapSort(HeapDataType* a, int sz);
+void PrintArray(HeapDataType* a, int sz);

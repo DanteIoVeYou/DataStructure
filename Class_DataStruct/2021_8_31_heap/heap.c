@@ -4,8 +4,8 @@
 
 
 //Swap function
-void Swap(int* x, int* y){
-	int tmp = *x;
+void Swap(HeapDataType* x, HeapDataType* y){
+	HeapDataType tmp = *x;
 	*x = *y;
 	*y = tmp;
 }
@@ -15,7 +15,7 @@ void Swap(int* x, int* y){
 //So it is a process of iteration from the bottom to the top
 //Now we hypothesize we have a complete binary tree that is asjusted well
 // max-heap
-void AdjustDown(int* a, int sz, int k){
+void AdjustDown(HeapDataType* a, int sz, int k){
 	int parent = k;
 	int child = 2 * parent + 1;
 	while (child < sz) {
@@ -35,7 +35,7 @@ void AdjustDown(int* a, int sz, int k){
 
 //iteration from the last parent element to the first
 
-void HeapSort(int* a, int sz) {
+void HeapSort(HeapDataType* a, int sz) {
 	int i = (sz - 1 - 1) / 2; //the last subscript of non-leaf node
 	while (i){
 		AdjustDown(a, sz, i);
@@ -52,7 +52,7 @@ void HeapSort(int* a, int sz) {
 	}
 }
 
-void PrintArray(int* a, int sz) {
+void PrintArray(HeapDataType* a, int sz) {
 	int i = 0;
 	for (i = 0; i < sz; i++) {
 		printf("%d ", a[i]);
