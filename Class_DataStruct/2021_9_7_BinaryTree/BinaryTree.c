@@ -57,6 +57,7 @@ void BTPrevOrder(BTNode* root)
 {
 	if (root == NULL)
 	{
+		printf("NULL ");
 		return;
 	}
 	else
@@ -66,7 +67,66 @@ void BTPrevOrder(BTNode* root)
 		BTPrevOrder(root->right);
 	}
 }
-
+//中序遍历
+void BTInOrder(BTNode* root)
+{
+	if (root == NULL)
+	{
+		printf("NULL ");
+		return;
+	}
+	else
+	{
+		BTInOrder(root->left);
+		printf("%d ", root->data);
+		BTInOrder(root->right);
+	}
+}
+//后序遍历
+void BTPostOrder(BTNode* root)
+{
+	if (root == NULL)
+	{
+		printf("NULL ");
+		return;
+	}
+	else
+	{
+		BTPostOrder(root->left);
+		BTPostOrder(root->right);
+		printf("%d ", root->data);
+	}
+}
+//层序遍历
+void BTLevelOrder(BTNode* root)
+{
+	;
+}
+// 二叉树节点个数
+int BTSize(BTNode* root)
+{
+	if (root == NULL)
+	{
+		return 0;
+	}
+	else
+	{
+		return 1 + BTSize(root->left) + BTSize(root->right);
+	}
+}
+// 二叉树叶子节点个数
+int BTLeafSize(BTNode* root)
+{
+	if (root == NULL)
+	{
+		return 0;
+	}
+	if (root->left == NULL && root->right == NULL)
+	{
+		return 1;
+	}
+	return BTLeafSize(root->left) + BTLeafSize(root->right);
+}
 //第k层的节点个数
 int BTLevelKSize(BTNode* root, int k)
 {
@@ -83,13 +143,6 @@ int BTLevelKSize(BTNode* root, int k)
 		return BTLevelKSize(root->left, k - 1) + BTLevelKSize(root->right, k - 1);
 	}
 }
-
-
-//int Max(int x, int y)
-//{
-//	return x > y ? x : y;
-//}
-
 //树的深度 -> 对深度进行筛选
 int BTDepth(BTNode* root)
 {
@@ -102,9 +155,7 @@ int BTDepth(BTNode* root)
 		return 1 + max(BTDepth(root->left), BTDepth(root->right));//使用了stdlib.h中的宏max
 	}
 }
-
 // 二叉树查找值为x的节点
-BTNode* ret = NULL;
 BTNode* BTFind(BTNode* root, BTDataType x)
 {
 	if (root == NULL)
