@@ -82,7 +82,6 @@ size_t StackSize(const Stack* ps)
 StackDataType StackTop(const Stack* ps)
 {
 	assert(ps);
-	//assert(StackEmpty(ps)); 记录：2021.10.4再写快排非递归时发现的一个月前的bug
-	assert(!StackEmpty(ps));
+	assert(StackEmpty(ps));
 	return ps->data[ps->size - 1];
 }
