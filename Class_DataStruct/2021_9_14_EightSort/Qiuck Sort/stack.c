@@ -20,7 +20,7 @@ void StackCheck(Stack* ps)
 	assert(ps);
 	if (ps->capacity == ps->size)
 	{
-		StackBuy(ps);
+ 		StackBuy(ps);
 	}
 }
 void StackInit(Stack* ps)
@@ -82,6 +82,6 @@ size_t StackSize(const Stack* ps)
 StackDataType StackTop(const Stack* ps)
 {
 	assert(ps);
-	assert(StackEmpty(ps));
+	assert(!StackEmpty(ps));
 	return ps->data[ps->size - 1];
 }
