@@ -19,11 +19,45 @@ void Swap(int* x, int* y)
 	*y = tmp;
 }
 
+//三数取中，来避免已经有序的情况下复杂度为O(N^2)的情况
+int GetMidNum(int* arr, int left, int mid, int right)
+{
+	if (arr[left] > arr[right])
+	{
+		if (arr[left] > arr[mid])
+		{
+			return mid;
+		}
+		else
+		{
+			return right;
+		}
+	}
+	else if (arr[mid] > arr[right])
+	{
+		return right;
+	}
+	else
+	{
+		if (arr[mid] > arr[left])
+		{
+			return mid;
+		}
+		else
+		{
+			return left;
+		}
+	}
+}
 //方法一：Hoare法
 int Partion_Hoare(int* arr, int left, int right)
 {
 	int first = left;
+	int mid = (right - left) / 2 + left;
+	int midi = GetMidNum(arr, left, mid, right);
+	Swap(&arr[left], &arr[midi]);
 	int key = arr[left];
+
 	while (left < right)
 	{
 		while (arr[right] >= key && right > left)
@@ -45,6 +79,9 @@ int Partion_Hole(int* arr, int left, int right)
 {
 	//1.正常挖坑
 	int hole = left;//一开始最左边的数是坑位
+	int mid = (right - left) / 2 + left;
+	int midi = GetMidNum(arr, left, mid, right);
+	Swap(&arr[left], &arr[midi]);
 	int key = arr[left];//选出的关键字是最左边的数
 	while (left<right)
 	{
@@ -95,6 +132,9 @@ int Partion_Prev_After_pointer(int* arr, int left, int right)
 	//cur指向的值若<=key，prev++，交换prev和cur的值
 	int prev = left;
 	int cur = left + 1;
+	int mid = (right - left) / 2 + left;
+	int midi = GetMidNum(arr, left, mid, right);
+	Swap(&arr[left], &arr[midi]);
 	int key = arr[left];
 	while (cur <= right)
 	{
