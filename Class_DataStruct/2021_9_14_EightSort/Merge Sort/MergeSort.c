@@ -27,7 +27,7 @@ void _MergeSort(int* arr, int* tmp, int left, int right)
 	//挑小的数插入
 	while (begin1 <= end1 && begin2 <= end2)
 	{
-		if (arr[begin1] < arr[begin2])
+		if (arr[begin1] <= arr[begin2])
 			tmp[index++] = arr[begin1++];
 		else
 			tmp[index++] = arr[begin2++];
@@ -95,7 +95,7 @@ void MergeSortNoRe(int* arr, int n)
 			//挑小的数插入
 			while (begin1 <= end1 && begin2 <= end2)
 			{
-				if (arr[begin1] < arr[begin2])
+				if (arr[begin1] <= arr[begin2])
 					tmp[index++] = arr[begin1++];
 				else
 					tmp[index++] = arr[begin2++];
