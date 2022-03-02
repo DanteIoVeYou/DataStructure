@@ -22,7 +22,7 @@ namespace imdanteking
 			assert(!empty());
 			_v.erase(_v.begin());
 		}
-		T top() {
+		const T& top() {
 			assert(!empty());
 			return _v[0];
 		}
@@ -31,6 +31,9 @@ namespace imdanteking
 		}
 		void swap(stack st) {
 			st._v.swap(_v);
+		}
+		size_t size()const {
+			return _v.size();
 		}
 	private:
 		vector<T> _v;
@@ -41,17 +44,19 @@ namespace imdanteking
 		stack<int> st1;
 		cout << st1.empty() << endl;
 		st1.push(1);
-		cout << st1.empty() << endl;
+		cout << "size: " << st1.size() << endl;
 		st1.push(2);
 		st1.push(3);
 		st1.push(4);
 		st1.push(5);
 		st1.push(6);
+		cout <<"size: " << st1.size() << endl;
 		while (!st1.empty()) {
 			cout << st1.top() << endl;
 			st1.pop();
 		}
 		cout << st1.empty() << endl;
+		cout << "size: " << st1.size() << endl;
 
 	}
 }
