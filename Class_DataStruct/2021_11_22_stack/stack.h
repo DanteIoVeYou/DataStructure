@@ -20,11 +20,11 @@ namespace imdanteking
 		}
 		void pop() {
 			assert(!empty());
-			_v.erase(_v.begin());
+			_v.pop_back();
 		}
 		const T& top() {
 			assert(!empty());
-			return _v[0];
+			return _v.back();
 		}
 		bool empty() {
 			return _v.empty();
